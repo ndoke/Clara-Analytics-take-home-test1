@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="script.js"></script>
+</head>
+
+<body ng-app="firstApplication"
+	ng-controller="autoCompleteController as ctrl" ng-cloak>
+	<div ng-cloak>
+		<md-autocomplete ng-disabled="ctrl.isDisabled"
+			md-selected-item="ctrl.selectedItem"
+			md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+			md-search-text="ctrl.searchText"
+			md-selected-item-change="ctrl.selectedItemChange(item)"
+			md-items="item in ctrl.querySearch(ctrl.searchText)"
+			md-item-text="item.display" md-min-length="0" placeholder="Countries">
+		<md-item-template> <span
+			md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+		</md-item-template> </md-autocomplete>
+	</div>
+	<div>
+		City: <select ng-model="cities" ng-options="city for city in data">
+			<option value=''>Select</option>
+		</select>
+	</div>
+</body>
+</html>
